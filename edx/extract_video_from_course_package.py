@@ -47,7 +47,8 @@ def get_video_info(video_xml_path):
         url = dom['src']
     if not url:
         dom = soup.video.find('encoded_video', profile='desktop_mp4')
-        url = dom['url']
+        if dom:
+            url = dom['url']
     info = {
         'video_id': video_id,
         'url': url,
